@@ -1,0 +1,16 @@
+<div>
+    <h2>Post Details</h2>
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.body }}</p>
+</div>
+
+<h2>Comments for Post {{ postId }}</h2>
+<input type="text" [(ngModel)]="filter" placeholder="Search comments" #filterInput
+    (input)="filterComments(filterInput.value)">
+<ul>
+    <li *ngFor="let comment of comments | filter: filter">
+        <h4>{{ comment.name }}</h4>
+        <p>{{ comment.email }}</p>
+        <p>{{ comment.body }}</p>
+    </li>
+</ul>
